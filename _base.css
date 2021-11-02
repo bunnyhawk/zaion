@@ -1,0 +1,219 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #2d2d2d;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .25rem;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 42px;
+  margin-top: 0;
+}
+
+a {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+}
+
+/* a:after {
+  background-color: #fff;
+  bottom: -2px;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transition: all .25s linear;
+  width: 100%;
+}
+
+a:active:after,
+a:hover:after,
+a:focus:after {
+  transform: scaleY(2);
+} */
+
+button {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+input {
+  border-color: #fff;
+  border-width: 1px;
+  background-color: transparent;
+  padding: 8px;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+h3 a,
+h4 a {
+  color: #2d2d2d;
+}
+
+strong a {
+  font-size: .9rem;
+  text-transform: uppercase;
+}
+
+img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+  position: absolute;
+}
+
+nav li {
+  display: inline-block;
+}
+
+.bottom-nav {
+  bottom: 11px;
+  left: 19px;
+}
+
+.bottom-nav li {
+  margin-right: 43px;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 19px;
+}
+
+.top-nav li {
+  align-items: center;
+  display: inline-flex;
+  margin-left: 46px;
+}
+
+.wrapper {
+  padding: 11px 20px;
+}
+
+.section {
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.section-about,
+.section-waitlist,
+.section-contact {
+  bottom: 60px;
+}
+
+.section-about {
+  width: 240px;
+}
+
+.section-about p {
+  margin: 25px 0 0;
+}
+
+.section-waitlist {
+  left: 105px;
+  width: 150px;
+}
+
+.section-waitlist input {
+  width: 132px;
+}
+
+.section-waitlist button {
+  padding: 12px 0;
+  width: 100%;
+}
+
+.section-contact {
+  left: 215px;
+}
+
+.section-guestbook {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #fff;
+  height: 380px;
+  overflow: auto;
+  right: 180px;
+  top: 48px;
+  width: 285px;
+}
+
+.section-guestbook ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section-guestbook li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px;
+}
+
+.section-guestbook button {
+  display: block;
+  padding: 16px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.user {
+  display: block;
+}
