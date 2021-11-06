@@ -202,6 +202,10 @@ nav li {
   left: 215px;
 }
 
+.section-contact a {
+  text-decoration: underline;
+}
+
 .section-guestbook {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid #fff;
@@ -210,6 +214,18 @@ nav li {
   right: 180px;
   top: 48px;
   width: 285px;
+}
+
+.close-button {
+  float: right;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.close-button:before {
+  content: "X";
+  display: block;
 }
 
 .section-guestbook ul {
@@ -223,11 +239,12 @@ nav li {
   padding: 15px;
 }
 
-.section-guestbook button {
+.login-button {
   display: block;
   padding: 16px 0;
   text-align: center;
   width: 100%;
+  text-decoration: none;
 }
 
 .user {
