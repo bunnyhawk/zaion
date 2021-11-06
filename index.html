@@ -13,10 +13,41 @@
   <link href="_base.css" rel="stylesheet">
 </head>
 <body>
-<video playsinline autoplay muted loop>
-  <source src="videos/feel_good_lost.mp4">
+<video id="video" playsinline autoplay muted loop>
   Your Browser does not support video.
 </video>
+<div class="video-controls-wrapper">
+  <div class="video-controls">
+    <button id="video-previous">
+      <span class="sr-only">Skip to previous video</span>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF" aria-hidden="true">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+      </svg>
+    </button>
+    <button id="video-pause">
+      <span class="sr-only">Pause video</span>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF" aria-hidden="true">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+    </button>
+    <button id="video-play" class="hidden">
+      <span class="sr-only">Play video</span>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF" aria-hidden="true">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    <button id="video-next">
+      <span class="sr-only">Skip to next video</span>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF" aria-hidden="true">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+      </svg>
+    </button>
+  </div>
+</div>
 <div class="wrapper viewport-header">
   <header class="header">
     <h1 class="uppercase">Zaion</h1>
@@ -59,7 +90,7 @@
       <a class="uppercase" href="mailto:info@zaion.world">info@zaion.world</a>
     </section>
     <section class="section section-guestbook has-border">
-      <button class="close-button"><span class="sr-only">Close</span></button>
+      <button id="guestbook-close" class="close-button"><span class="sr-only">Close</span></button>
       <ul>
         <li>
           <span class="user">@maria (10:00pm, 10/27/2021)</span>

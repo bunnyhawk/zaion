@@ -153,6 +153,25 @@ nav li {
   display: none;
 }
 
+.video-controls-wrapper {
+  position: absolute;
+  bottom: 10vh;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.video-controls {
+  border: 1px solid #fff;
+  padding: 5px;
+  z-index: 1;
+}
+
+.video-controls button svg {
+  height: 15px;
+  width: 15px;
+}
+
 .section-about,
 .section-waitlist,
 .section-contact {

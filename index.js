@@ -1,11 +1,11 @@
-
+const videoList = [
+  'feel_good_lost.mp4',
+  'ukoo.mp4'
+];
 
 (function () {
-  const wrapper = document.querySelector('.wrapper');
   const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('[data-section]');
   const loginBg = document.querySelector('.section-login');
-  const loginForm = document.querySelector('.submit-form');
 
   const resetSections = () => sections.forEach((section) => {
     section.addEventListener('click', event => { event.stopPropagation() }, false);
@@ -14,13 +14,13 @@
 
   resetSections();
 
-  wrapper.addEventListener("click", event => { resetSections() }, false);
-
+  document.querySelector('.wrapper').addEventListener("click", event => { resetSections() }, false);
   loginBg.addEventListener("click", event => { resetSections() }, false);
+  loginBg.addEventListener("click", event => { resetSections() }, false);
+  document.getElementById('guestbook-close').addEventListener("click", event => { resetSections() }, false);
+  document.querySelector('.submit-form').addEventListener("click", event => { event.stopPropagation() }, false);
 
-  loginForm.addEventListener("click", event => { event.stopPropagation() }, false);
-
-  navLinks.forEach((link) => {
+  document.querySelectorAll('[data-section]').forEach((link) => {
     link.addEventListener('click', event => {
       event.stopPropagation();
       const sectionContainer = document.querySelector(`.${link.dataset.section}`);
@@ -28,4 +28,43 @@
       sectionContainer.classList.toggle('hidden');
     }, false);
   });
+
+  const pauseVideo = document.getElementById('video-pause');
+  const playVideo = document.getElementById('video-play');
+  const video = document.getElementById('video');
+  const source = document.createElement('source');
+  let currentVideo = 0;
+
+  source.setAttribute('src', `videos/${videoList[currentVideo]}`);
+  source.setAttribute('type', 'video/mp4');
+
+  video.appendChild(source);
+  video.play();
+
+  const changeSource = (isNext) => {
+    const vidListLength = videoList.length - 1;
+    if (isNext) {
+      currentVideo === vidListLength ? currentVideo = 0 : currentVideo++;
+    } else {
+      currentVideo === 0 ? currentVideo = vidListLength : currentVideo--;
+    }
+
+    video.pause();
+
+    source.setAttribute('src', `videos/${videoList[currentVideo]}`);
+
+    video.load();
+    video.play();
+  };
+
+  const togglePlayPause = (isPlay) => {
+    isPlay ? video.play() : video.pause();
+    playVideo.classList.toggle('hidden');
+    pauseVideo.classList.toggle('hidden');
+  };
+
+  document.getElementById('video-previous').addEventListener('click', () => changeSource())
+  document.getElementById('video-next').addEventListener('click', () => { changeSource(true) }, false);
+  pauseVideo.addEventListener('click', () => togglePlayPause());
+  playVideo.addEventListener('click', () => { togglePlayPause(true) }, false);
 })();
