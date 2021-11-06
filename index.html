@@ -30,7 +30,7 @@
         <li><a href="#" class="uppercase" data-section="section-guestbook">Guestbook</a></li>
         <li><a href="#" class="uppercase" data-section="section-submit">Submit</a></li>
         <li>
-          <a href="#">
+          <a href="#" data-section="section-share">
             <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="14.0629" cy="7.93693" r="1.41838" fill="white"/>
               <circle cx="14.0629" cy="15.4816" r="1.41838" fill="white"/>
@@ -58,7 +58,7 @@
     <section class="section section-contact">
       <a class="uppercase" href="mailto:info@zaion.world">info@zaion.world</a>
     </section>
-    <section class="section section-guestbook">
+    <section class="section section-guestbook has-border">
       <button class="close-button"><span class="sr-only">Close</span></button>
       <ul>
         <li>
@@ -86,16 +86,44 @@
           hello zaion
         </li>
       </ul>
-      <button class="login-button uppercase">Log in to leave your mark</button>
+      <button class="login-button uppercase" data-section="section-login">Log in to leave your mark</button>
     </section>
-    <section class="section section-submit">
+    <section class="section section-submit has-border">
+        <label>
+          <span>Name</span>
+          <input type="text" id="name" name="name" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="text" id="email" name="email" />
+        </label>
+        <label>
+          <span>Upload Video</span>
+          <input type="file"
+          id="avatar" name="avatar"
+          accept="video/*" />
+        </label>
     </section>
-    <section class="section section-share">
-
+    <section class="section section-share has-border">
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    </section>
+    <section class="section section-login">
+      <div class="submit-form has-border">
+        <h3 class="uppercase">Login</h3>
+        <label>
+          <span>User Email</span>
+          <input type="email" id="userEmail" name="userEmail" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="text" id="userPassword" name="userPassword" />
+        </label>
+      </div>
     </section>
   </main>
 </div>
 
 <script src="index.js" async defer></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>

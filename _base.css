@@ -47,24 +47,6 @@ a {
   text-decoration: none;
 }
 
-/* a:after {
-  background-color: #fff;
-  bottom: -2px;
-  content: '';
-  display: block;
-  height: 1px;
-  left: 0;
-  position: absolute;
-  transition: all .25s linear;
-  width: 100%;
-}
-
-a:active:after,
-a:hover:after,
-a:focus:after {
-  transform: scaleY(2);
-} */
-
 video {
   object-fit: cover;
   width: 100vw;
@@ -92,6 +74,7 @@ input {
   border-width: 1px;
   background-color: transparent;
   padding: 8px;
+  width: 100%;
 }
 
 ul {
@@ -185,15 +168,12 @@ nav li {
 }
 
 .section-waitlist {
-  left: 105px;
-  width: 150px;
-}
-
-.section-waitlist input {
-  width: 132px;
+  left: 80px;
+  width: 200px;
 }
 
 .section-waitlist button {
+  font-size: 10px;
   padding: 12px 0;
   width: 100%;
 }
@@ -207,10 +187,7 @@ nav li {
 }
 
 .section-guestbook {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid #fff;
   height: 380px;
-  overflow: auto;
   right: 180px;
   top: 48px;
   width: 285px;
@@ -249,4 +226,52 @@ nav li {
 
 .user {
   display: block;
+}
+
+.section-submit {
+  padding: 10px 15px;
+  right: 80px;
+  top: 48px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.section-submit label span {
+  display: block;
+}
+
+.section-share {
+  right: 20px;
+  top: 45px;
+  width: 200px;
+}
+
+.section-login {
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.section-login.hidden {
+  display: none;
+}
+
+.submit-form {
+  padding: 5px 25px 20px;
+  width: 350px;
+}
+
+.has-border {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #fff;
+  overflow: auto;
 }

@@ -3,7 +3,9 @@
 (function () {
   const wrapper = document.querySelector('.wrapper');
   const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('nav a');
+  const navLinks = document.querySelectorAll('[data-section]');
+  const loginBg = document.querySelector('.section-login');
+  const loginForm = document.querySelector('.submit-form');
 
   const resetSections = () => sections.forEach((section) => {
     section.addEventListener('click', event => { event.stopPropagation() }, false);
@@ -12,9 +14,11 @@
 
   resetSections();
 
-  wrapper.addEventListener("click", function () {
-    resetSections();
-  }, false);
+  wrapper.addEventListener("click", event => { resetSections() }, false);
+
+  loginBg.addEventListener("click", event => { resetSections() }, false);
+
+  loginForm.addEventListener("click", event => { event.stopPropagation() }, false);
 
   navLinks.forEach((link) => {
     link.addEventListener('click', event => {
