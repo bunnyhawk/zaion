@@ -155,7 +155,7 @@ nav li {
 
 .video-controls-wrapper {
   position: absolute;
-  bottom: 10vh;
+  bottom: 6vh;
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -171,6 +171,18 @@ nav li {
   height: 15px;
   width: 15px;
 }
+
+.video-controls .mute-button:not(.muted) .is-muted {
+  display: none;
+}
+
+.video-controls .mute-button.muted .not-muted {
+  display: none;
+}
+
+
+
+
 
 .section-about,
 .section-waitlist,

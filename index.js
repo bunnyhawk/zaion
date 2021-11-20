@@ -1,9 +1,10 @@
-const videoList = [
-  'feel_good_lost.mp4',
-  'ukoo.mp4'
-];
+
 
 (function () {
+  const videoList = [
+    'feel_good_lost.mp4',
+    'ukoo.mp4'
+  ];
   const sections = document.querySelectorAll('section');
   const loginBg = document.querySelector('.section-login');
 
@@ -31,6 +32,7 @@ const videoList = [
 
   const pauseVideo = document.getElementById('video-pause');
   const playVideo = document.getElementById('video-play');
+  const muteVideo = document.getElementById('video-mute');
   const video = document.getElementById('video');
   const source = document.createElement('source');
   let currentVideo = 0;
@@ -39,7 +41,21 @@ const videoList = [
   source.setAttribute('type', 'video/mp4');
 
   video.appendChild(source);
+  video.muted = true;
   video.play();
+  video.addEventListener('ended', () => { changeSource(true) }, false);
+
+  const toggleMute = () => {
+    muteVideo.classList.toggle('muted');
+    if (video.muted === true) {
+      video.muted = false;
+    }
+    else if (video.muted === false) {
+      video.muted = true;
+    }
+  }
+
+  muteVideo.addEventListener('click', toggleMute);
 
   const changeSource = (isNext) => {
     const vidListLength = videoList.length - 1;
@@ -52,9 +68,10 @@ const videoList = [
     video.pause();
 
     source.setAttribute('src', `videos/${videoList[currentVideo]}`);
-
+    video.muted = true;
     video.load();
     video.play();
+    video.addEventListener('ended', () => { changeSource(true) }, false);
   };
 
   const togglePlayPause = (isPlay) => {
@@ -63,7 +80,7 @@ const videoList = [
     pauseVideo.classList.toggle('hidden');
   };
 
-  document.getElementById('video-previous').addEventListener('click', () => changeSource())
+  document.getElementById('video-previous').addEventListener('click', changeSource)
   document.getElementById('video-next').addEventListener('click', () => { changeSource(true) }, false);
   pauseVideo.addEventListener('click', () => togglePlayPause());
   playVideo.addEventListener('click', () => { togglePlayPause(true) }, false);
