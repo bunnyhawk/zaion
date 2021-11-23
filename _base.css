@@ -150,7 +150,10 @@ nav li {
 }
 
 .hidden {
-  display: none;
+  border: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
 }
 
 .video-controls-wrapper {
@@ -275,9 +278,15 @@ label {
 }
 
 .section-share {
+  padding: 10px;
   right: 20px;
   top: 45px;
-  width: 200px;
+  text-align: right;
+}
+
+.fb-share-button.fb_iframe_widget {
+  display: block;
+  margin-top: 5px;
 }
 
 .section-login {
