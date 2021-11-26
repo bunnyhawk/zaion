@@ -69,10 +69,81 @@ button {
   text-decoration: underline;
 }
 
+.btn {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+}
+
+.file-field {
+  display: flex;
+  position: relative;
+}
+
+.file-field .btn {
+  float: left;
+  height: 3rem;
+  line-height: 3rem;
+  margin-right: 1rem;
+}
+
+.file-field span {
+  cursor: pointer;
+}
+
+.file-field input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  width: 100%;
+}
+
+.file-path-wrapper {
+  width: 100%;
+}
+
+.progress-field {
+  margin-top: 1rem;
+}
+
+.error {
+  color: red;
+}
+
 input {
-  border-color: #fff;
-  border-width: 1px;
   background-color: transparent;
+  border-bottom: 1px solid #9e9e9e;
+  border-color: #fff;
+  border-radius: 0;
+  border-width: 1px;
+  box-shadow: none;
+  box-sizing: content-box;
+  font-size: 1rem;
+  height: 2rem;
+  margin: 0 0 15px 0;
+  outline: none;
   padding: 8px;
   width: 100%;
 }
@@ -154,6 +225,14 @@ nav li {
   height: 0 !important;
   overflow: hidden !important;
   padding: 0 !important;
+  width: 0 !important;
+}
+
+.music {
+  position: absolute;
+  bottom: 1vh;
+  right: 1vh;
+  z-index: 1;
 }
 
 .video-controls-wrapper {
@@ -194,7 +273,7 @@ nav li {
 }
 
 .section-about {
-  width: 240px;
+  width: 275px;
 }
 
 .section-about p {

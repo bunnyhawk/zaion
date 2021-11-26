@@ -84,4 +84,5 @@
   document.getElementById('video-next').addEventListener('click', () => { changeSource(true) }, false);
   pauseVideo.addEventListener('click', () => togglePlayPause());
   playVideo.addEventListener('click', () => { togglePlayPause(true) }, false);
+
 })();
