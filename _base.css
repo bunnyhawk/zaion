@@ -73,8 +73,8 @@ button {
   border: none;
   border-radius: 2px;
   display: inline-block;
-  height: 36px;
-  line-height: 36px;
+  height: 3rem;
+  line-height: 3rem;
   outline: 0;
   padding: 0 2rem;
   text-transform: uppercase;
@@ -92,12 +92,11 @@ button {
 .file-field {
   display: flex;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .file-field .btn {
   float: left;
-  height: 3rem;
-  line-height: 3rem;
   margin-right: 1rem;
 }
 
@@ -121,7 +120,13 @@ button {
 }
 
 .file-path-wrapper {
+  display: flex;
+  align-items: center;
   width: 100%;
+}
+
+.file-path {
+  font-size: 14px;
 }
 
 .progress-field {
