@@ -18,7 +18,7 @@
   document.querySelector('.wrapper').addEventListener("click", event => { resetSections() }, false);
   loginBg.addEventListener("click", event => { resetSections() }, false);
   loginBg.addEventListener("click", event => { resetSections() }, false);
-  document.getElementById('guestbook-close').addEventListener("click", event => { resetSections() }, false);
+  // document.getElementById('guestbook-close').addEventListener("click", event => { resetSections() }, false);
   document.querySelector('.submit-form').addEventListener("click", event => { event.stopPropagation() }, false);
 
   document.querySelectorAll('[data-section]').forEach((link) => {

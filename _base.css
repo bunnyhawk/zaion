@@ -366,11 +366,18 @@ label {
   right: 20px;
   top: 45px;
   text-align: right;
+  display: flex;
 }
 
-.fb-share-button.fb_iframe_widget {
-  display: block;
-  margin-top: 5px;
+.section-share a {
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.section-share svg {
+  height: auto;
+  width: 24px;
 }
 
 .section-login {
