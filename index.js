@@ -1,5 +1,3 @@
-
-
 (function () {
   const videoList = [
     'feel_good_lost.mp4',

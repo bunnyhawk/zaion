@@ -18,7 +18,7 @@
 
 <div class="wrapper viewport-header">
   <header class="header">
-    <h1 class="uppercase"><a href="#">Zaion</a></h1>
+    <h1 class="uppercase"><a href="https://zaion.world/">Zaion</a></h1>
   </header>
 
   <main class="main">
@@ -36,6 +36,11 @@
           <input id="email" type="email" name="Email" class="validate" required="" aria-required="true">
         </div>
 
+        <div class="input-field">
+          <label for="short-description">Short description</label>
+          <input id="short-description" type="text" name="short-description" class="validate" required="" aria-required="true">
+        </div>
+
         <div class="file-field input-field col s12">
           <div class="btn">
             <span>File</span>
@@ -47,7 +52,7 @@
         </div>
 
         <div class="input-field col s6">
-          <button class="waves-effect waves-light btn submit-btn" type="submit" onclick="submitForm(); return false;">SUBMIT A VIDEO</button>
+          <button id="submit" class="waves-effect waves-light btn submit-btn" type="submit" onclick="submitForm(); return false;">SUBMIT A VIDEO</button>
         </div>   
 
         <div class="input-field progress-field" id="progress">
@@ -71,7 +76,9 @@
   const fileSelector = document.getElementById('files');
   const fileName = document.getElementById('file-name');
   const nameSelector = document.getElementById('name');
+  const descriptionSelector = document.getElementById('short-description');
   const emailSelector = document.getElementById('email');
+  const submitButton = document.getElementById('submit');
 
   reader.onloadend = function(e) {
     if (e.target.error != null) {
@@ -80,7 +87,13 @@
     } else {
       google.script.run
         .withSuccessHandler(showSuccess)
-        .uploadFileToGoogleDrive(e.target.result, file.name, nameSelector.value, emailSelector.value);
+        .uploadFileToGoogleDrive(
+          e.target.result,
+          file.name,
+          nameSelector.value,
+          emailSelector.value,
+          descriptionSelector.value
+        );
     }
   };
 
@@ -88,13 +101,15 @@
     if (e === "OK") { 
       document.getElementById('forminner').style.display = 'none';
       document.getElementById('success').style.display = 'block';
+      submitButton.disabled = false;
     } else {
       showError(e);
     }
   }
 
   function submitForm() {
-
+    submitButton.disabled = true;
+  
     const files = fileSelector.files;
 
     if (files.length === 0) {
@@ -107,6 +122,11 @@
       return;
     }
 
+    if (!descriptionSelector.value) {
+      showError("Please enter a description");
+      return;
+    }
+
     if (!/(.+)@(.+){2,}\.(.+){2,}/.test(emailSelector.value)) {
       showError("Please enter a valid email");
       return;
@@ -114,16 +134,15 @@
 
     file = files[0];
 
-
     showMessage("Uploading file...");
 
     reader.readAsDataURL(file);
-
   }
 
   function showError(e) {
     progressContainer.classList.add('error');
     progressContainer.innerHTML = e;
+    submitButton.disabled = false;
   }
 
   function showMessage(e) {
@@ -135,7 +154,7 @@
     fileName.innerHTML = fileSelector.files[0].name;
   }
 
-  fileSelector.addEventListener('change', updateFileName)
+  fileSelector.addEventListener('change', updateFileName);
 
 </script>
 
