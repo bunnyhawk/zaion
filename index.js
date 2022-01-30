@@ -1,33 +1,52 @@
-(function () {
-  const videoList = [
-    'feel_good_lost.mp4',
-    'ukoo.mp4'
-  ];
-  const sections = document.querySelectorAll('section');
-  const loginBg = document.querySelector('.section-login');
+import 'dotenv/config';
+import AWS from 'aws-sdk';
 
-  const resetSections = () => sections.forEach((section) => {
-    section.addEventListener('click', event => { event.stopPropagation() }, false);
-    section.classList.add('hidden');
-  });
+AWS.config.update({
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  region: process.env.REGION
+});
 
-  resetSections();
+const s3 = new AWS.S3();
 
-  document.querySelector('.wrapper').addEventListener("click", event => { resetSections() }, false);
-  loginBg.addEventListener("click", event => { resetSections() }, false);
-  loginBg.addEventListener("click", event => { resetSections() }, false);
-  // document.getElementById('guestbook-close').addEventListener("click", event => { resetSections() }, false);
-  document.querySelector('.submit-form').addEventListener("click", event => { event.stopPropagation() }, false);
+const params = {
+  Bucket: 'zaion-videos',
+  Delimiter: '/',
+}
+const videoList = [];
+s3.listObjects(params, function (err, data) {
+  if (err) throw err;
+  data.Contents.forEach(video => {
+    videoList.push(video.Key)
+  })
+});
 
-  document.querySelectorAll('[data-section]').forEach((link) => {
-    link.addEventListener('click', event => {
-      event.stopPropagation();
-      const sectionContainer = document.querySelector(`.${link.dataset.section}`);
-      resetSections();
-      sectionContainer.classList.toggle('hidden');
-    }, false);
-  });
+const sections = document.querySelectorAll('section');
+const loginBg = document.querySelector('.section-login');
 
+const resetSections = () => sections.forEach((section) => {
+  section.addEventListener('click', event => { event.stopPropagation() }, false);
+  section.classList.add('hidden');
+});
+
+resetSections();
+
+document.querySelector('.wrapper').addEventListener("click", event => { resetSections() }, false);
+loginBg.addEventListener("click", event => { resetSections() }, false);
+loginBg.addEventListener("click", event => { resetSections() }, false);
+// document.getElementById('guestbook-close').addEventListener("click", event => { resetSections() }, false);
+document.querySelector('.submit-form').addEventListener("click", event => { event.stopPropagation() }, false);
+
+document.querySelectorAll('[data-section]').forEach((link) => {
+  link.addEventListener('click', event => {
+    event.stopPropagation();
+    const sectionContainer = document.querySelector(`.${link.dataset.section}`);
+    resetSections();
+    sectionContainer.classList.toggle('hidden');
+  }, false);
+});
+
+setTimeout(() => {
   const pauseVideo = document.getElementById('video-pause');
   const playVideo = document.getElementById('video-play');
   const muteVideo = document.getElementById('video-mute');
@@ -35,7 +54,7 @@
   const source = document.createElement('source');
   let currentVideo = 0;
 
-  source.setAttribute('src', `videos/${videoList[currentVideo]}`);
+  source.setAttribute('src', `https://zaion-videos.s3.us-west-2.amazonaws.com/${videoList[currentVideo]}`);
   source.setAttribute('type', 'video/mp4');
 
   video.appendChild(source);
@@ -82,5 +101,4 @@
   document.getElementById('video-next').addEventListener('click', () => { changeSource(true) }, false);
   pauseVideo.addEventListener('click', () => togglePlayPause());
   playVideo.addEventListener('click', () => { togglePlayPause(true) }, false);
-
-})();
+}, 500);
