@@ -4,8 +4,7 @@
   "private": true,
   "dependencies": {
     "aws-sdk": "^2.1066.0",
-    "dotenv": "^14.3.2",
-    "save-dev": "^0.0.1-security"
+    "dotenv": "^14.3.2"
   },
   "devDependencies": {
     "dotenv-webpack": "^7.1.0",
